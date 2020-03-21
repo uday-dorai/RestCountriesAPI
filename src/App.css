@@ -2,37 +2,61 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#header{
+  /* color: rgb(105, 102, 97); */
+  background-color: blue;
+  padding: 30px 15px 30px 15px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+}
+
+#search{
+  background-color: darkslategray;
+  display: flex;
+}
+
+#mainBody{
+  background-color: darkslategray;
+  /* min-height: 400px; */
+  /* padding-left: 35px; */
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.day{
+  width: 20%;
+  height: 25%;
+  background-color: darkturquoise;
+  margin: 10px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+img{
+  width: 100%;
+  height: 150px;
+  border-radius: 10px 10px 0px 0px ;
+}
+.imageDiv{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: darkcyan;
+  border-radius: 10px 10px 0px 0px;
+
+  /* background-size: cover; */
+  /* width: 100%; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.countryInfo{
+  padding-left: 20px;
+  text-align: left;
+  color: antiquewhite;
+  background-color: darkcyan;
+  border-radius: 0px 0px 10px 10px;
+
 }
+
+
+
+
