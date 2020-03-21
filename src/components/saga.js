@@ -15,8 +15,24 @@ function* getDataWorker(){
     
 }
 
+function* getCountryDataByRegion(){
+    yield takeEvery('GET_DATA_BY_REGION',getCountryDataByRegionWorker)
+
+}
+
+function* getCountryDataByRegionWorker(data){
+    console.log('worker',data)
+    const region = data.region
+    const url = `https://restcountries.eu/rest/v2/region/${region}`
+    const payload = yield fetch(url,{method:'GET'}).then(resp => {return resp.json()})
+    // console.log(payload)
+    yield put ({type:'DATA_BY_REGION',payload})
+    
+}
+
 export default function* rootSaga() {
     yield all([
         fork(getData),
+        fork(getCountryDataByRegion),
     ]);
 }

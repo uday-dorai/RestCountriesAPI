@@ -1,1 +1,2 @@
 export const COUNTRY_DATA = 'COUNTRY_DATA';
+export const DATA_BY_REGION = 'DATA_BY_REGION';

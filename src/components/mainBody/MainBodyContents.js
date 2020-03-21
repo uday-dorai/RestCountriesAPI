@@ -6,22 +6,33 @@ class MainBodyContents extends Component {
     componentDidMount=() =>{
         this.props.mapContent();
     }
-    onClickHandler =() =>{
-        console.log('onClick')
+    onClickHandler =(e) =>{
+        e.preventDefault()
+        console.log('onClick',e.target.parentElement.parentElement.getAttribute('name'))
+        console.log('onClick',this.refs[e.target.parentElement.parentElement.getAttribute('name')])
+
     }
     render() {
-        console.log(this.props.data)
+        // console.log(this.props.data)
         return (
             <div id ='mainBody'>
                 {this.props.data.map(country =>{
+                    let name = country.name;
+                    // console.log(name)
                     return(
-                        <div className='day' onClick={this.onClickHandler}>
+                        <div className='day' 
+                            onClick={this.onClickHandler} 
+                            key={country.alpha2Code}
+                            ref={country.name}
+                            name={name}
+                            >
+
                             <div className='imageDiv'>
                                 <img src={country.flag}></img>
                             </div>
                             <div className='countryInfo'>
-                                <label>{country.name}</label>
-                                <p >Population:{country.population}</p>
+                                <h4>{country.name}</h4>
+                                <p>Population:{country.population}</p>
                                 <p>Region:{country.region}</p>
                                 <p>Capital:{country.capital}</p>
                             </div>

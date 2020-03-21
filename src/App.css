@@ -3,22 +3,23 @@
 }
 
 #header{
-  /* color: rgb(105, 102, 97); */
-  background-color: blue;
+  color: white;
+  background-color: #200f21;
   padding: 30px 15px 30px 15px;
   display: flex;
   justify-content: space-between;
 }
 
 #search{
-  background-color: darkslategray;
+  background-color: #1b262c;
+  padding: 10px 100px 10px 50px;
   display: flex;
+  justify-content: space-between;
+  color: aqua;
 }
 
 #mainBody{
-  background-color: darkslategray;
-  /* min-height: 400px; */
-  /* padding-left: 35px; */
+  background-color: #1b262c;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -41,7 +42,7 @@ img{
 .imageDiv{
   background-repeat: no-repeat;
   background-position: center;
-  background-color: darkcyan;
+  background-color: darkslategray;
   border-radius: 10px 10px 0px 0px;
 
   /* background-size: cover; */
@@ -52,10 +53,12 @@ img{
   padding-left: 20px;
   text-align: left;
   color: antiquewhite;
-  background-color: darkcyan;
+  background-color: darkslategray;
   border-radius: 0px 0px 10px 10px;
-
+  /* padding-top: 0px; */
 }
+
+
 
 
 
