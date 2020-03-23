@@ -7,6 +7,7 @@ import Header from './components/header/header'
 import BodyContent from './components/mainBody/MainBodyContents';
 import SearchBar from './components/searchComponent/searchCompBody';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SingleCountry from './components/singleCountryData/singleCountryInfo'
 
 function App() {
   return (
@@ -14,13 +15,14 @@ function App() {
       <Router>
         <div className="App">
           <Header />
-          <SearchBar />
+          
           <Switch>
 
+            <Route path="/allcountries" exact component={BodyContent} />
             <Route path="/" exact component={BodyContent} />
+            <Route path="/country/:name" component={SingleCountry} />
 
           </Switch>
-          <BodyContent />
         </div>
       </Router>
 

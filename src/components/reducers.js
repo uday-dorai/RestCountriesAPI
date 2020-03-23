@@ -1,23 +1,39 @@
 
-import {COUNTRY_DATA,DATA_BY_REGION} from './constants'
+import {GET_ALL_COUNTRY_DATA_SUCCESS,DATA_BY_REGION,SINGLE_COUNTRY_DATA_SUCCESS} from './constants'
 import { combineReducers } from 'redux'
 
 const initialState = {
     
-    countryData: [],
+    AllCountryData: [],
+    regionData:[],
+    singleCountry:[],
+    nearCountries:[],
+    all:true,
 }
 
 const reducers = (state = initialState, action) => {
 
     switch (action.type) {
-        case COUNTRY_DATA:
+        case GET_ALL_COUNTRY_DATA_SUCCESS:
+            
             return{
-                countryData:action.payload
+                AllCountryData:action.payload,
+                regionData:state.regionData,
             }
         case DATA_BY_REGION:
-            console.log(action)
+            
             return{
-                countryData:action.payload
+                AllCountryData:action.payload,
+                regionData:action.payload
+            }
+        case SINGLE_COUNTRY_DATA_SUCCESS:
+            
+            return{
+                AllCountryData:state.AllCountryData,
+                regionData:state.regionData,
+                singleCountry:action.payload.singleCountry,
+                nearCountries:action.payload.nearCountries,
+
             }
         default:
             return state;

@@ -16,11 +16,7 @@ import {filterByRegion,mapContent} from "../actions"
 class filterRegion extends Component {
     onclickHandler = (e)=>{
         let region = e.target.getAttribute('value');
-        if(region === "All"){
-            this.props.mapContent();
-        }else{
         this.props.filterByRegion(region)
-        }
     }
     render() {
        
