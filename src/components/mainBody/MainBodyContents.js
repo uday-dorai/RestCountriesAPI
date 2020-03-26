@@ -12,67 +12,68 @@ class MainBodyContents extends Component {
     }
     onClickHandler = async(e) =>{
         e.preventDefault()
-        // console.log('onClick',e.target.parentElement.parentElement.getAttribute('name'))
         let countryName=e.target.parentElement.parentElement.getAttribute('name');
-        // console.log('onClick',this.refs[e.target.parentElement.parentElement.getAttribute('name')]
-        
+        if(countryName !== null){
         await this.props.history.push('/country/'+countryName)
+        }
         
 
     }
+    StyleColor(){
+        if(this.props.color){
+            return{
+                backgroundColor:'hsl(207, 26%, 17%)'
+            }
+        }else{
+            return{
+                backgroundColor:'hsl(0, 0%, 90%)',
+                color:'hsl(200, 15%, 8%)'
+
+            }
+        }
+        
+    }
+    styleColor2(){
+        if(this.props.color){
+            return{
+            backgroundColor:'hsl(209, 23%, 22%)'
+
+            }
+        }else{
+            return{
+                backgroundColor:'hsl(0, 0%, 100%)',
+                color:'hsl(200, 15%, 8%)'
+
+            }
+        }
+    }
     render() {
         let regionArray = this.props.data.regionData
-        console.log(regionArray.length)
-
-        if(regionArray.length !== 0){
-            // console.log('not empty')
-            return (
-                <div id ='container'>
-                    <SearchBar />
-                    <div id ='mainBody'>
-                    {this.props.data.regionData.map(country =>{
-                        let name = country.name;
-                        // console.log(name)
-                        return(
-                            // <Link to={'/'+country.name}>
-                                <div className='day' 
-                                    onClick={this.onClickHandler} 
-                                    key={country.alpha2Code}
-                                    ref={country.name}
-                                    name={name}
-                                    >
-    
-                                    <div className='imageDiv'>
-                                        <img src={country.flag}></img>
-                                    </div>
-                                    <div className='countryInfo'>
-                                        <h4>{country.name}</h4>
-                                        <p>Population: {country.population}</p>
-                                        <p>Region: {country.region}</p>
-                                        <p>Capital: {country.capital}</p>
-                                    </div>
-                                </div>
-                            // </Link>
-                        )
-                    })}
-                    </div>
-                </div>
-            )
+        let searchedCountry = this.props.data.searchedCountry
+        let allCountryData=this.props.data.AllCountryData
+        let data = [];
+        if( searchedCountry && searchedCountry.length !== 0){
+            data = searchedCountry;
+        }else if(regionArray.length !== 0){
+            data = regionArray;
         }else{
+            data= allCountryData
+        }
+
+
             return (
-                <div id ='container'>
+                <div className ='container' style={this.StyleColor()}>
                     <SearchBar />
-                    <div id ='mainBody'>
-                    {this.props.data.AllCountryData.map(country =>{
+                    <div id ='mainBody' >
+                    {data.map(country =>{
                         let name = country.name;
-                        // console.log(name)
                         return(
-                            // <Link to={'/'+country.name}>
                                 <div className='day' 
                                     onClick={this.onClickHandler} 
                                     key={country.alpha2Code}
                                     ref={country.name}
                                     name={name}
+                                    style={this.styleColor2()}
                                     >
     
                                     <div className='imageDiv'>
@@ -85,13 +86,11 @@ class MainBodyContents extends Component {
                                         <p>Capital: {country.capital}</p>
                                     </div>
                                 </div>
-                            // </Link>
                         )
                     })}
                     </div>
                 </div>
             )
-        }
         
     }
 }
@@ -99,7 +98,8 @@ class MainBodyContents extends Component {
 const mapStateToProps = (state) =>{
     console.log(state)
     return {
-        data:state.countries
+        data:state.countries,
+        color:state.countries.color
     }
 }
 

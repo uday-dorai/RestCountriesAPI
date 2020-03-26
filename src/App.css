@@ -1,34 +1,32 @@
 .App {
   text-align: center;
+  color: white;
 }
 
 #header{
-  color: white;
-  background-color: #023838;
-  padding: 40px 7% 40px 8%;
+  
+  padding: 40px 8% 40px 8%;
   display: flex;
   justify-content: space-between;
 }
 
+
 #search{
-  background-color: #1b262c;
   padding: 3% 8% 3% 8%;
   display: flex;
   justify-content: space-between;
-  color: aqua;
 }
 
 #mainBody{
-  background-color: #1b262c;
+  min-height: 450px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .day{
-  width: 20%;
+  width: 250px;
   height: 25%;
-  background-color: darkturquoise;
   margin: 10px;
   border-radius: 10px;
   display: grid;
@@ -42,33 +40,32 @@
 .imageDiv{
   background-repeat: no-repeat;
   background-position: center;
-  background-color: darkslategray;
   border-radius: 10px 10px 0px 0px;
 }
 
 .countryInfo{
   padding-left: 20px;
+  padding-bottom: 30px;
   text-align: left;
-  color: antiquewhite;
-  background-color: darkslategray;
   border-radius: 0px 0px 10px 10px;
 }
 
 #singleCountry{
-  color: blanchedalmond;
-  background-color: #1b262c;
+  /* color: blanchedalmond; */
+  /* background-color: hsl(207, 26%, 17%); */
   min-height: 518px;
   padding: 20px;
   display: flex;
   flex-direction: column;
 }
+/* background-color: hsl(207, 26%, 17%); */
 
 .backButton{
-  color: blanchedalmond;
-  background-color: darkslategray;
+  /* color: blanchedalmond; */
+  background-color: hsl(209, 23%, 22%);
   border-radius: 4px;
   width: 10%;
-  margin: 70px;
+  margin: 30px 70px 30px 70px;
   padding: 7px 10px 7px 10px;
   float: left;
   /* display: none; */
@@ -121,7 +118,7 @@
   border-radius: 5px;
   margin: 3px;
   padding: 5px 8px 5px 8px;
-  background-color: #0e1418;
+  /* background-color: hsl(209, 23%, 22%); */
 }
 
 .details{
@@ -131,8 +128,17 @@
 }
 
 .data{
-  color: rgb(238, 240, 241);
+  /* color: rgb(238, 240, 241); */
   font-weight: lighter;
+}
+
+.inputBox{
+  border: none;
+  padding-left: 10px;
+  border-radius: 5px;
+  width: 20%;
+  /* background-color: hsl(209, 23%, 22%); */
+  /* box-shadow: black 5px; */
 }
 
 

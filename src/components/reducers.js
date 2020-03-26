@@ -1,5 +1,11 @@
 
-import {GET_ALL_COUNTRY_DATA_SUCCESS,DATA_BY_REGION,SINGLE_COUNTRY_DATA_SUCCESS} from './constants'
+import {
+    GET_ALL_COUNTRY_DATA_SUCCESS,
+    DATA_BY_REGION,
+    SINGLE_COUNTRY_DATA_SUCCESS,
+    SEARCH_COUNTRY_SUCCESS,
+    COLOR_CHANGE_SUCCESS
+} from './constants'
 import { combineReducers } from 'redux'
 
 const initialState = {
@@ -8,7 +14,9 @@ const initialState = {
     regionData:[],
     singleCountry:[],
     nearCountries:[],
+    searchedCountry:[],
     all:true,
+    color:true
 }
 
 const reducers = (state = initialState, action) => {
@@ -19,20 +27,40 @@ const reducers = (state = initialState, action) => {
             return{
                 AllCountryData:action.payload,
                 regionData:state.regionData,
+                color:state.color
+
             }
         case DATA_BY_REGION:
             
             return{
                 AllCountryData:action.payload,
-                regionData:action.payload
+                regionData:action.payload,
+                color:state.color
+
             }
         case SINGLE_COUNTRY_DATA_SUCCESS:
             
             return{
+                ...state,
+                nearCountries:action.payload.nearCountries,
+                singleCountry:action.payload.singleCountry,
+                
+
+            }
+        case SEARCH_COUNTRY_SUCCESS:
+        
+            return{
                 AllCountryData:state.AllCountryData,
                 regionData:state.regionData,
-                singleCountry:action.payload.singleCountry,
-                nearCountries:action.payload.nearCountries,
+                searchedCountry:action.payload,
+                color:state.color
+
+            }
+        case COLOR_CHANGE_SUCCESS:
+        
+            return{
+                ...state,
+                color:action.color
 
             }
         default:

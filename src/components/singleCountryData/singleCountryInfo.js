@@ -7,26 +7,52 @@ import { Link, withRouter } from 'react-router-dom'
 
 class singleCountryInfo extends Component {
     componentDidMount() {
-        // console.log(this)
         let country = this.props.match.params.name;
         this.props.singleCountry(country);
     }
     backClick = () => {
-        // console.log(this.props.history)
         this.props.history.push('/allcountries')
     }
     onClickHandler = async (e) => {
-        // console.log(e.target.getAttribute('name'))
         const countryName = e.target.getAttribute('value');
         await this.props.history.push('/country/' + countryName)
         await this.props.singleCountry(countryName)
     }
+    styleColor1(){
+        if(this.props.color){
+            return{
+            backgroundColor:'hsl(207, 26%, 17%)'
+            }
+        }else{
+            return{
+                backgroundColor:'hsl(0, 0%, 94%)',
+                color:'hsl(200, 15%, 8%)'
+
+            }
+        }
+    }
+
+    styleColor2(){
+        if(this.props.color){
+            return{
+            backgroundColor:'hsl(209, 23%, 22%)'
+
+            }
+        }else{
+            return{
+                backgroundColor:'hsl(0, 0%, 100%)',
+                color:'hsl(200, 15%, 8%)'
+
+            }
+        }
+    }
+
     render() {
         // console.log(this.props.match.params.name)
         if (this.props.country !== undefined) {
             return (
-                <div id="singleCountry">
-                    <button className="backButton" onClick={this.backClick}>
+                <div id="singleCountry" style={this.styleColor1()}>
+                    <button className="backButton" onClick={this.backClick} style={this.styleColor2()}>
                         back
                     </button>
                     {this.props.country.map((singleCountryInfo) => {
@@ -83,7 +109,7 @@ class singleCountryInfo extends Component {
                                         <div className='borderTitle'>Border countries:</div>
                                         <div className='nearCountries'>{this.props.nearCountries.map(nearcountry => {
                                             return (
-                                                <div className="nearName" onClick={this.onClickHandler} value={nearcountry.name}>{nearcountry.name}</div>
+                                                <div className="nearName" onClick={this.onClickHandler} value={nearcountry.name} style={this.styleColor2()}>{nearcountry.name} </div>
                                             );
                                         })
 
@@ -108,7 +134,8 @@ const mapStateToProps = (state) => {
     console.log(state)
     return {
         country: state.countries.singleCountry,
-        nearCountries: state.countries.nearCountries
+        nearCountries: state.countries.nearCountries,
+        color:state.countries.color
     }
 }
 

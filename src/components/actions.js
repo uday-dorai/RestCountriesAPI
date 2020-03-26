@@ -19,3 +19,18 @@ export const singleCountry=(data)=>{
         country:data
     }
 }
+
+export const searchCountry=(data)=>{
+    console.log('country',data)
+    return {
+        type:'SEARCH_COUNTRY',
+        country:data
+    }
+}
+
+export const colorChange=(data)=>{
+    return {
+        type:'COLOR_CHANGE',
+        color:data
+    }
+}
