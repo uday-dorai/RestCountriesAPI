@@ -51,31 +51,25 @@
 }
 
 #singleCountry{
-  /* color: blanchedalmond; */
-  /* background-color: hsl(207, 26%, 17%); */
   min-height: 518px;
   padding: 20px;
   display: flex;
   flex-direction: column;
 }
-/* background-color: hsl(207, 26%, 17%); */
 
 .backButton{
-  /* color: blanchedalmond; */
   background-color: hsl(209, 23%, 22%);
   border-radius: 4px;
   width: 10%;
   margin: 30px 70px 30px 70px;
   padding: 7px 10px 7px 10px;
   float: left;
-  /* display: none; */
 }
 
 .belowBackButton{
   text-align: left;
   display: grid;
   grid-template-columns: 1fr 1fr ;
-  /* padding: 50px ; */
 }
 
 .fullInfo{
@@ -86,7 +80,6 @@
 .fullInfoDetails2{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* padding-top: 20px; */
   padding-bottom: 50px;
 }
 
@@ -118,7 +111,6 @@
   border-radius: 5px;
   margin: 3px;
   padding: 5px 8px 5px 8px;
-  /* background-color: hsl(209, 23%, 22%); */
 }
 
 .details{
@@ -128,8 +120,7 @@
 }
 
 .data{
-  /* color: rgb(238, 240, 241); */
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 .inputBox{
@@ -137,8 +128,6 @@
   padding-left: 10px;
   border-radius: 5px;
   width: 20%;
-  /* background-color: hsl(209, 23%, 22%); */
-  /* box-shadow: black 5px; */
 }
 
 

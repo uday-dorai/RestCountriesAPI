@@ -18,30 +18,30 @@ class singleCountryInfo extends Component {
         await this.props.history.push('/country/' + countryName)
         await this.props.singleCountry(countryName)
     }
-    styleColor1(){
-        if(this.props.color){
-            return{
-            backgroundColor:'hsl(207, 26%, 17%)'
+    styleColor1() {
+        if (this.props.color) {
+            return {
+                backgroundColor: 'hsl(207, 26%, 17%)'
             }
-        }else{
-            return{
-                backgroundColor:'hsl(0, 0%, 94%)',
-                color:'hsl(200, 15%, 8%)'
+        } else {
+            return {
+                backgroundColor: 'hsl(0, 0%, 94%)',
+                color: 'hsl(200, 15%, 8%)'
 
             }
         }
     }
 
-    styleColor2(){
-        if(this.props.color){
-            return{
-            backgroundColor:'hsl(209, 23%, 22%)'
+    styleColor2() {
+        if (this.props.color) {
+            return {
+                backgroundColor: 'hsl(209, 23%, 22%)'
 
             }
-        }else{
-            return{
-                backgroundColor:'hsl(0, 0%, 100%)',
-                color:'hsl(200, 15%, 8%)'
+        } else {
+            return {
+                backgroundColor: 'hsl(0, 0%, 100%)',
+                color: 'hsl(200, 15%, 8%)'
 
             }
         }
@@ -50,6 +50,17 @@ class singleCountryInfo extends Component {
     render() {
         console.log(this.props.nearCountries)
         if (this.props.country !== undefined && this.props.nearCountries !== undefined) {
+            let languagesArray=this.props.country.map((singleCountryInfo) => {
+                return singleCountryInfo.languages.map(languages=>{
+                    
+                    return languages.name
+                })
+            })
+            let languages='';
+            for(let languagesindex=0;languagesindex<languagesArray.length;languagesindex++){
+                languages=languages+languagesArray[languagesindex]
+            }
+
             return (
                 <div id="singleCountry" style={this.styleColor1()}>
                     <button className="backButton" onClick={this.backClick} style={this.styleColor2()}>
@@ -99,6 +110,8 @@ class singleCountryInfo extends Component {
                                             </div>
                                             <div className="details">
                                                 <p>Languages: </p>
+                                                <p className="data">{languages}</p>
+
                                             </div>
 
 
@@ -135,7 +148,7 @@ const mapStateToProps = (state) => {
     return {
         country: state.countries.singleCountry,
         nearCountries: state.countries.nearCountries,
-        color:state.countries.color
+        color: state.countries.color
     }
 }
 
