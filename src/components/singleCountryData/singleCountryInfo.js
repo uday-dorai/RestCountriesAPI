@@ -48,8 +48,8 @@ class singleCountryInfo extends Component {
     }
 
     render() {
-        // console.log(this.props.match.params.name)
-        if (this.props.country !== undefined) {
+        console.log(this.props.nearCountries)
+        if (this.props.country !== undefined && this.props.nearCountries !== undefined) {
             return (
                 <div id="singleCountry" style={this.styleColor1()}>
                     <button className="backButton" onClick={this.backClick} style={this.styleColor2()}>

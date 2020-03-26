@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {mapContent,singleCountry} from '../actions'
+import {allCountriesData,singleCountry} from '../actions'
 import {Link,withRouter} from 'react-router-dom'
 import SearchBar from '../searchComponent/searchCompBody'
 
 
 class MainBodyContents extends Component {
     componentDidMount=() =>{
-        console.log('hello')
-        this.props.mapContent();
+        this.props.allCountriesData();
     }
     onClickHandler = async(e) =>{
         e.preventDefault()
@@ -96,7 +95,6 @@ class MainBodyContents extends Component {
 }
 
 const mapStateToProps = (state) =>{
-    console.log(state)
     return {
         data:state.countries,
         color:state.countries.color
@@ -104,7 +102,7 @@ const mapStateToProps = (state) =>{
 }
 
 const mapDispatchToProps ={
-    mapContent,
+    allCountriesData,
     singleCountry,
 }
 

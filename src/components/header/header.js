@@ -28,7 +28,7 @@ class header extends Component {
     render() {
         return (
             <div id = 'header' style ={this.headerColor()}>
-                <div><strong>where in the World</strong></div>
+                <div style={{fontSize:'18px'}}>Where in the World</div>
                 <Stack isInline onClick={this.onClickHandler}>
                     {/* <Brightness3Icon name='copy' /> */}
                     <strong style={{fontSize:'20px',cursor:'pointer'}}>☾</strong>
@@ -41,7 +41,6 @@ class header extends Component {
 }
 
 const mapStateToProps=state=>{
-    console.log(state)
     return{
         color:state.countries.color
     }

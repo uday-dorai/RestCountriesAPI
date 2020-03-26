@@ -15,7 +15,6 @@ const initialState = {
     singleCountry:[],
     nearCountries:[],
     searchedCountry:[],
-    all:true,
     color:true
 }
 

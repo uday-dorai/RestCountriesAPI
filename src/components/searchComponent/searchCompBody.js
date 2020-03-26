@@ -29,7 +29,7 @@ class searchCompBody extends Component {
         return (
             <div id='search'>
                 {/* <form onSubmit={this.onSubmitHandler}> */}
-                    <input className='inputBox' placeHolder="Search for a country" onChange={this.onChangeHandler} ref='search' style={this.inputBoxColor()}></input>
+                    <input className='inputBox' placeholder="Search for a country" onChange={this.onChangeHandler} ref='search' style={this.inputBoxColor()}></input>
                 {/* </form> */}
                 <FilterRegion/>
             </div>

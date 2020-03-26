@@ -3,15 +3,11 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    MenuGroup,
-    MenuDivider,
-    MenuOptionGroup,
-    MenuItemOption,
 } from "@chakra-ui/core";
 
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import {filterByRegion,mapContent} from "../actions"
+import {filterByRegion,allCountriesData} from "../actions"
 
 class filterRegion extends Component {
     onclickHandler = (e)=>{
@@ -68,7 +64,7 @@ const mapStateToProps = (state)=>{
     }
 }
 const mapDispatchToProps ={
-    mapContent,
+    allCountriesData,
     filterByRegion,
 }
 

@@ -5,7 +5,7 @@ function* getAllCountryData() {
 }
 
 function* getAllCountryDataWorker() {
-    console.log('hello')
+    
     const url = `https://restcountries.eu/rest/v2/all`
     const payload = yield fetch(url, { method: 'GET' }).then(resp => { return resp.json() })
     yield put({ type: 'GET_ALL_COUNTRY_DATA_SUCCESS', payload })
@@ -20,7 +20,6 @@ function* getCountryDataByRegion() {
 
 function* getCountryDataByRegionWorker(data) {
     const region = data.region
-    console.log(region)
     let url;
     if(region === 'All'){
         url = `https://restcountries.eu/rest/v2/all`
@@ -57,11 +56,19 @@ function* getSingleCountryFullDataWorker(data) {
         }
     })
     const nearCountries = yield fetch(nearCountriesUrl, { method: 'GET' }).then(resp => { return resp.json() })
-
-    const payload = {
-        singleCountry: singleCountry,
-        nearCountries: nearCountries,
+    let payload={};
+    if(nearCountries.status>=400){
+         payload = {
+            singleCountry: singleCountry,
+            nearCountries:[],
+        }
+    }else{
+         payload = {
+            singleCountry: singleCountry,
+            nearCountries: nearCountries,
+        }
     }
+    
     yield put({ type: 'SINGLE_COUNTRY_DATA_SUCCESS', payload })
 
 }
@@ -75,7 +82,6 @@ function* getSearchCountryWorker(data) {
     const CountryName=data.country
     const url = `https://restcountries.eu/rest/v2/name/${CountryName}`;
     const payload = yield fetch(url, { method: 'GET' }).then(resp => { return resp.json() })
-    console.log('search',payload)
     if(payload.status !== 404){
     yield put({ type: 'SEARCH_COUNTRY_SUCCESS', payload })
     }
@@ -87,7 +93,6 @@ function* colorChange() {
 }
 
 function* colorChangeWorker(data) {
- console.log('worker',data)
  const color = data.color
  yield put({ type: 'COLOR_CHANGE_SUCCESS', color })
 
