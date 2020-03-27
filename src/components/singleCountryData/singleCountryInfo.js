@@ -73,7 +73,7 @@ class singleCountryInfo extends Component {
                                 <div className='fullInfo'>
                                     <h3 className='fullInfoName'>{singleCountryInfo.name} </h3>
                                     <div className='fullInfoDetails2'>
-                                        <div>
+                                        <div className='fullInfoDetails4'>
                                             <div className="details">
                                                 <p className='title'> Native Name:</p>
                                                 <p className="data"> {singleCountryInfo.nativeName}</p>
@@ -99,7 +99,7 @@ class singleCountryInfo extends Component {
 
                                             </div>
                                         </div>
-                                        <div>
+                                        <div className='fullInfoDetails4'>
                                             <div className="details">
                                                 <p>Top Level Domain: </p>
                                                 <p className="data">{singleCountryInfo.topLevelDomain}</p>

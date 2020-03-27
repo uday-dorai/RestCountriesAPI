@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   color: white;
+  /* background-color: hsl(207, 26%, 17%); */
 }
 
 #header{
@@ -51,8 +52,8 @@
 }
 
 #singleCountry{
-  min-height: 518px;
   padding: 20px;
+  padding-bottom: 100px;
   display: flex;
   flex-direction: column;
 }
@@ -68,24 +69,32 @@
 
 .belowBackButton{
   text-align: left;
-  display: grid;
-  grid-template-columns: 1fr 1fr ;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr ; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* flex-direction: column; */
 }
 
 .fullInfo{
-  display: grid;
-  grid-template-rows: 15% 60% 10%;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  max-width: 40%;
 }
 
 .fullInfoDetails2{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.fullInfoDetails4{
+  padding-right: 30px;
 }
 
 .belowBackButton > img{
-  padding-left: 10%;
-  width: 80%;
+  padding: 20px;
+  width: 450px;
   max-height: 100%;
 }
 
@@ -93,7 +102,7 @@
 .fullInfoDetails3{
   display: grid;
   grid-template-columns: 25% 75%;
-  padding: 5px;
+  padding: 20px 5px 5px 5px;
 }
 
 .borderTitle{
@@ -101,7 +110,7 @@
 }
 
 .nearCountries{
-  padding: 5px;
+  padding: 5px 5px 5px 5px;
   display: flex;
   flex-wrap: wrap;
 }
